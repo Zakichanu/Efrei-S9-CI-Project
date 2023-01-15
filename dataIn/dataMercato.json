@@ -1,0 +1,8 @@
+[
+  {"season": "2019/2020", "playerName": "Bogdan Mladenovic", "from": "Rad", "to": "Gil Vicente", "value": "1500000€"},
+  {"season": "2021/2022", "playerName": "Lionel Messi", "from": "FC Barcelone", "to": "PSG", "value": "10000000000€"},
+  {"season": "2022/2023", "playerName": "Mykhaïlo Moudryk", "from": "Donetsk", "to": "Chelsea", "value": "7000000000€"},
+  {"season": "2021/2022", "playerName": "Jack Grealish", "from": "Aston Villa", "to": "Manchester City", "value": "450000000€"},
+  {"season": "2018/2019", "playerName": "Kylian MBappe", "from": "As Monaco", "to": "PSG", "value": "22200000000€"},
+  {"season": "2018/2019", "playerName": "Riyad Mahrez", "from": "Leicester City", "to": "Manchester City", "value": "7500000000€"}
+]
