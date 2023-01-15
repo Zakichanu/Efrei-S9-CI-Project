@@ -1,8 +1,10 @@
 package test;
 
+public class PersonService {
 
-public interface PersonService {
+    private PersonRepository repository;
 
-	Person createPerson(Person person);
-
+    public void save(Person person) {
+        repository.save(person);
+    }
 }
