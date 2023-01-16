@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:int-file="http://www.springframework.org/schema/integration/file"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:int-jdbc="http://www.springframework.org/schema/integration/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/integration
+           http://www.springframework.org/schema/integration/spring-integration-5.1.xsd
+           http://www.springframework.org/schema/integration/file
+           http://www.springframework.org/schema/integration/file/spring-integration-file-5.1.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/jdbc
+           http://www.springframework.org/schema/jdbc/spring-jdbc.xsd http://www.springframework.org/schema/integration/jdbc https://www.springframework.org/schema/integration/jdbc/spring-integration-jdbc.xsd">
+
+    <context:component-scan base-package="amraoui_tobbal.project"/>
+
+
+    <!-- expose an embedded database instance as a bean in a Spring ApplicationContext -->
+    <jdbc:embedded-database id="mercato" type="H2">
+        <jdbc:script location="classpath:scriptSQL.sql"/>
+    </jdbc:embedded-database>
+
+
+    <!--  read data from dataIn  -->
+    <int-file:inbound-channel-adapter id="jsonInboundChannel"
+                                      directory="./dataIn"
+                                      filename-pattern="dataMercato.json"
+                                      channel="channelEntree">
+        <int:poller id="poller" fixed-delay="2000"/>
+    </int-file:inbound-channel-adapter>
+
+    <int:json-to-object-transformer input-channel="channelEntree" output-channel="mainChannel"
+                                    type="amraoui_tobbal.project.entity.Mercato"/>
+
+    <int:channel id="mainChannel"/>
+
+    <!--  write data to dataOut just for fun -->
+    <int:recipient-list-router id="customRouter" input-channel="mainChannel">
+        <int:recipient channel="serviceActivatorChannel"/>
+    </int:recipient-list-router>
+
+    <int:service-activator input-channel="serviceActivatorChannel" output-channel="objectTransformer" ref="serviceID" method="myService"/>
+    <bean id="serviceID" class="amraoui_tobbal.project.services.MercatoService"/>
+
+    <int:channel id="objectTransformer"/>
+
+    <int:object-to-json-transformer id="t1" input-channel="objectTransformer" output-channel="filesOut"/>
+
+    <int:channel id="filesOut"/>
+
+    <int-file:outbound-channel-adapter id="f1" channel="filesOut"
+                                       directory="dataOut/optimizedDataMercato"/>
+
+    <int:channel id="jsonIntoDB"/>
+    <!--  write data into database  -->
+    <int-jdbc:outbound-channel-adapter
+            query="INSERT INTO MERCATO (id, season, playerName, teamFrom, teamTo, valueTransfer)
+            values (:payload.id, :payload.season, :payload.playerName, :payload.teamFrom,:payload.teamTo, :payload.valueTransfer)"
+            data-source="mercato"
+            channel="jsonIntoDB"/>
+
+</beans>

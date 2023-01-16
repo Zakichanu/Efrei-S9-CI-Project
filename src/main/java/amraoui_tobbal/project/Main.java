@@ -8,6 +8,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
 
 	public static void main(String[] args) {
+		try{
+			ApplicationContext ctx = new ClassPathXmlApplicationContext("json_to_db.xml");
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 
 	}
 

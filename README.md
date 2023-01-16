@@ -1,93 +1,37 @@
-# gettingStartedIntegration
+# Cloud Integration project
 
 Compatibility: Java 11
 
-Download or clone the project
+Download or clone the project : https://github.com/Zakichanu/Efrei-S9-CI-Project
 
-Import this project as a Gradle project in Eclipse 
-
-or 
+& 
 
 Open this project in Intellij
 
-Run the main as a Java project: https://github.com/charroux/gettingStartedIntegration/blob/master/src/main/java/test/Main.java
 
-XML configuration files are into: https://github.com/charroux/gettingStartedIntegration/tree/master/src/main/resources
+## Context
 
-applicationContext.xml :
+We make a little json file about some transfers in football and we wanted at the end to put these data into the database using springboot xml
 
-	- input file adapter
+## Result
 
-	- channel
-	
-	- logging channel
+We tried in this project to :
 
-filtering.xml :
+- Play with a json file and get the new content into another json file.
+- Insert into a H2 database the content of the original json file using h2 jdbc library.
 
-	- input file adapter
+All of this in vain. We are not friednly with spring boot xml and the configuration was painful to make things looks alright, we understand what we did but 
+it didn't work as expected.
 
-	- channel
-	
-	- message filter 
-	
-	- adding headers
+## Conclusion
 
-	- logging channel
-		
-serviceActivator.xml
+You can find everything about this project in the package "amraoui_tobbal.project" for the java part and "resources" for the xml part.
 
-	- input file adapter
+NB : The tests package in both java and xml resources are the solution of the lab we made with the professor.
 
-	- file to string transformer
 
-	- channel
+## Authors
 
-	- service activator (java program)
+Zakaria TOBBAL & Yanis AMRAOUI
 
-	- output file adapter
-	
-routing.xml
-
-	- input file adapter
-	
-	- json to object transformer
-
-	- channel
-	
-	- router:
-	
-		- service activator
-		
-		- channel
-	
-	- aggregator:
-	
-	- outbound file adapter
-	
-	- json conversion
-
-javaScriptService.xml
-
-	- gateway
-	
-	- javascript
-	
-	- logger
-	
-webServiceCalling.xml
-
-Existing Web Service project : https://github.com/charroux/webServiceForSpringIntegration
-
-	-gateway
-	
-	- web service call
-	
-	- logger
-	
-sqlDatabase.xml
-
-	- gateway
-	
-	- data base (hsqldb, h2...)
-	
-	- logger
+Thanks for reading this README.md file, we hope you will enjoy our project.

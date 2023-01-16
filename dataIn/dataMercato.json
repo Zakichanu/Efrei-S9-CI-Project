@@ -1,8 +1,8 @@
 [
-  {"season": "2019/2020", "playerName": "Bogdan Mladenovic", "from": "Rad", "to": "Gil Vicente", "value": "1500000€"},
-  {"season": "2021/2022", "playerName": "Lionel Messi", "from": "FC Barcelone", "to": "PSG", "value": "10000000000€"},
-  {"season": "2022/2023", "playerName": "Mykhaïlo Moudryk", "from": "Donetsk", "to": "Chelsea", "value": "7000000000€"},
-  {"season": "2021/2022", "playerName": "Jack Grealish", "from": "Aston Villa", "to": "Manchester City", "value": "450000000€"},
-  {"season": "2018/2019", "playerName": "Kylian MBappe", "from": "As Monaco", "to": "PSG", "value": "22200000000€"},
-  {"season": "2018/2019", "playerName": "Riyad Mahrez", "from": "Leicester City", "to": "Manchester City", "value": "7500000000€"}
+  {"id": 1, "season": "2019/2020", "playerName": "Bogdan Mladenovic", "teamFrom": "Rad", "teamTo": "Gil Vicente", "valueTransfer": "1500000€"},
+  {"id": 2, "season": "2021/2022", "playerName": "Lionel Messi", "teamFrom": "FC Barcelone", "teamTo": "PSG", "valueTransfer": "10000000000€"},
+  {"id": 3, "season": "2022/2023", "playerName": "Mykhaïlo Moudryk", "teamFrom": "Donetsk", "teamTo": "Chelsea", "valueTransfer": "7000000000€"},
+  {"id": 4, "season": "2021/2022", "playerName": "Jack Grealish", "teamFrom": "Aston Villa", "teamTo": "Manchester City", "valueTransfer": "450000000€"},
+  {"id": 5, "season": "2018/2019", "playerName": "Kylian MBappe", "teamFrom": "As Monaco", "teamTo": "PSG", "valueTransfer": "22200000000€"},
+  {"id": 6, "season": "2018/2019", "playerName": "Riyad Mahrez", "teamFrom": "Leicester City", "teamTo": "Manchester City", "valueTransfer": "7500000000€"}
 ]

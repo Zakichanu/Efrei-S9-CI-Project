@@ -25,17 +25,16 @@ repositories {
 
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-integration'
-	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.14.0'
-	implementation 'com.h2database:h2'
-	implementation 'org.springframework.integration:spring-integration-jdbc:6.0.1'
-	implementation 'org.springframework.integration:spring-integration-file:6.0.1'
-	implementation 'com.opencsv:opencsv:5.7.1'
-	implementation 'com.fasterxml.jackson.core:jackson-annotations:2.14.0'
-	implementation 'com.fasterxml.jackson.core:jackson-core:2.14.0'
-	implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
-	implementation 'org.projectlombok:lombok:1.18.24'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	annotationProcessor 'org.projectlombok:lombok:1.18.24'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation('org.springframework.boot:spring-boot-starter-integration')
+	implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+	runtime "com.h2database:h2"
+	compile "org.apache.commons:commons-dbcp2:2.8.0"
+	compile "org.springframework.integration:spring-integration-http:5.1.0.RELEASE"
+	compile "org.springframework.integration:spring-integration-jdbc:5.1.0.RELEASE"
+	compile "org.springframework.integration:spring-integration-jpa:5.1.0.RELEASE"
+	compile 'org.springframework.integration:spring-integration-file:5.1.0.RELEASE'
+	compile 'org.springframework.integration:spring-integration-scripting:5.1.0.RELEASE'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.7'
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+
 }
